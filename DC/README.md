@@ -37,12 +37,12 @@ Description of the script run_analysis.R:
 
 - Script executes following steps:
 
--- It first loads the data into R
--- Next merges the training and the test sets to create one data set
--- Extracts only the measurements on the mean and standard deviation for each measurement. 
--- Updates the data table using descriptive activity names
--- Appropriately labels the data set with descriptive variable names.
--- Finally from the data set created in above step it creates a second, independent tidy data set 
+- - It first loads the data into R
+- - Next merges the training and the test sets to create one data set
+- - Extracts only the measurements on the mean and standard deviation for each measurement. 
+- - Updates the data table using descriptive activity names
+- - Appropriately labels the data set with descriptive variable names.
+- - Finally from the data set created in above step it creates a second, independent tidy data set 
    with the average of each variable for each activity and each subject.
 
 
