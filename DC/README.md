@@ -1,9 +1,8 @@
-=========================================================================================================
-##Human Activity Recognition Using Smartphones Dataset has been used to create a new tidy subset of data for
-##analysis. The original dataset is described separately below. 
-==========================================================================================================
+=====================================================================
+Analysis of Human Activity Recognition Using Smartphones Dataset. 
+=====================================================================
 
-#This dataset includes the following files:
+This dataset includes the following files:
 =========================================
 - 'README.txt'
 - 'tidy_mean_data.txt' -- Gives the tidy data after processing the original dataset.
@@ -11,7 +10,7 @@
 the tidy data.
 - 'features_info.txt': Shows information about the variables used in tidy data measure column.
 
-#Desciption of the tidy_mean_data data:
+Desciption of the tidy_mean_data data:
 --------------------------------------
 The data is arrived after summarizing a subset of the original Human activity recognition data.
 The Mean and Standard Deviation of each of the activity measurements taken from the original dataset are grouped for each
@@ -20,7 +19,7 @@ The file has Measure column that captures the variable name while the Mean colum
 against each subject and activity.
 The variable names are explained in features_info.txt
 
-#Columns in the dataset:
+Columns in the dataset:
 ----------------------
 Subject - A identifier to indicate the person who had performed the activity during this experiement.
 Activity - The activitiy which each person performed. These are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
@@ -29,7 +28,7 @@ Measure - The variable that is being measured. These are the meand and standard 
 Mean - The average value of the measurement made for the particular subject, activity and measure.
 
 
-#Description of the script run_analysis.R:
+Description of the script run_analysis.R:
 -----------------------------------------------
 
 Script does not take any parameters. 
@@ -48,9 +47,8 @@ with the average of each variable for each activity and each subject.
 =============================================================================================================
 
 
-===================================================
-Original README
-===================================================
+
+Original README from Human Activity Recognition Using Smartphones Dataset
 
 
 
