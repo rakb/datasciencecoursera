@@ -12,36 +12,38 @@ the tidy data.
 
 Desciption of the tidy_mean_data data:
 --------------------------------------
-The data is arrived after summarizing a subset of the original Human activity recognition data.
-The Mean and Standard Deviation of each of the activity measurements taken from the original dataset are grouped for each
+- The data is arrived after summarizing a subset of the original Human activity recognition data.
+- The Mean and Standard Deviation of each of the activity measurements taken from the original dataset are grouped for each
 subject and activity. Average of each group is computed for each of the measurement variable.
-The file has Measure column that captures the variable name while the Mean column gives the mean value for that measurement
+- The file has Measure column that captures the variable name while the Mean column gives the mean value for that measurement
 against each subject and activity.
-The variable names are explained in features_info.txt
+- The variable names are explained in features_info.txt
 
 Columns in the dataset:
 ----------------------
-Subject - A identifier to indicate the person who had performed the activity during this experiement.
-Activity - The activitiy which each person performed. These are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
+- Subject - A identifier to indicate the person who had performed the activity during this experiement.
+- Activity - The activitiy which each person performed. These are WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, 
 SITTING, STANDING, LAYING wearing a smartphone
-Measure - The variable that is being measured. These are the meand and standard deviation of the sennsor signals given by accelerometer and gyroscope
-Mean - The average value of the measurement made for the particular subject, activity and measure.
+- Measure - The variable that is being measured. These are the meand and standard deviation of the sennsor signals given by accelerometer and gyroscope
+- Mean - The average value of the measurement made for the particular subject, activity and measure.
 
 
 Description of the script run_analysis.R:
 -----------------------------------------------
 
-Script does not take any parameters. 
-Script assumes that all the files are there in "UCI HAR Dataset" directory.
-Script should be run from parent directory of "UCI HAR Dataset".
-Script executes following steps:
-It first loads the data into R
-Next merges the training and the test sets to create one data set
-Extracts only the measurements on the mean and standard deviation for each measurement. 
-Updates the data table using descriptive activity names
-Appropriately labels the data set with descriptive variable names.
-Finally from the data set created in above step it creates a second, independent tidy data set 
-with the average of each variable for each activity and each subject.
+- Script does not take any parameters. 
+- Script assumes that all the files are there in "UCI HAR Dataset" directory.
+- Script should be run from parent directory of "UCI HAR Dataset".
+
+- Script executes following steps:
+
+-- It first loads the data into R
+-- Next merges the training and the test sets to create one data set
+-- Extracts only the measurements on the mean and standard deviation for each measurement. 
+-- Updates the data table using descriptive activity names
+-- Appropriately labels the data set with descriptive variable names.
+-- Finally from the data set created in above step it creates a second, independent tidy data set 
+   with the average of each variable for each activity and each subject.
 
 
 =============================================================================================================
