@@ -1,0 +1,80 @@
+---
+title: "PracticalMachineLearning-CourseAssignment"
+author: "Rakesh Bhatnagar"
+date: "10 July 2016"
+output: html_document
+---
+
+Load the Training & Testing Data. The data is pre-downloaded from below websites.
+https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv and 
+https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv websites.
+
+```{r}
+library(caret)
+setwd("D:/Rakesh/MYWORK/RSpace/PML")
+traindata <- read.csv("pml-training.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
+
+testingdata <- read.csv("pml-testing.csv",stringsAsFactors=FALSE,na.strings=c("","NA"))
+
+```
+
+Perform data preprocessing. 
+Remove the columns that are not required for building model.
+
+```{r}
+traindata <- traindata[,-c(1:7)]
+testingdata <- testingdata[,-c(1:7)]
+```
+
+Few columns have good amount of missing data. These can be removed for model building
+Removing the columns that have 95% or more missing data.
+
+```{r}
+str(traindata)
+nr<-dim(traindata)[1]
+traindata <- traindata[ , colSums(is.na(traindata)) <= 0.95*nr]
+preObj <- preProcess(traindata[,-53],method=c("center","scale"))
+trainScaleData<-predict(preObj,traindata[,-53])
+testingdata<-testingdata[,colnames(trainScaleData)]
+alltrain <- data.frame(trainScaleData,classe=traindata[,53])
+```
+
+Build the validation data from the training data. Taking 50% of the training data to be validation.
+
+```{r}
+indxTrain<-createDataPartition(y=alltrain$classe,p=0.5,list=FALSE)
+training<-traindata[indxTrain,]
+validation<-traindata[-indxTrain,]
+str(training)
+```
+
+Since the problem is to predict the class. We can start by fitting the basic tree model.
+
+```{r}
+mod1 <- train(classe~.,"rpart",data=training)
+print(mod1$finalModel)
+prediction <- predict(mod1,validation)
+confusionMatrix(prediction,validation$classe)
+plot(mod1$finalModel,uniform=TRUE,main="Classification Tree")
+text(mod1$finalModel,use.n = TRUE, all=TRUE, cex=.8)
+```
+As can be seen by the above output the accuracy of the model is low.
+Let is now try to fit the random forest model.
+
+```{r}
+#mod2 <- train(classe~.,"rf",data=training)
+#Loading a saved model from above command 
+load(file="mod2.obj")
+prediction2 <- predict(mod2,validation)
+confusionMatrix(prediction2,validation$classe)
+```
+
+The model generated through random forest is very accurate but slow in generation.
+Now we can apply this model on the test data.
+
+```{r}
+prediction3 <- predict(mod2,testingdata)
+prediction3
+```
+
+The output gives the prediction classes for the 20 observations from testing data set.
