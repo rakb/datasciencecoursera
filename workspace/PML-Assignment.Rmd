@@ -62,9 +62,7 @@ As can be seen by the above output the accuracy of the model is low.
 Let is now try to fit the random forest model.
 
 ```{r}
-#mod2 <- train(classe~.,"rf",data=training)
-#Loading a saved model from above command 
-load(file="mod2.obj")
+mod2 <- train(classe~.,"rf",data=training)
 prediction2 <- predict(mod2,validation)
 confusionMatrix(prediction2,validation$classe)
 ```
